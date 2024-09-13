@@ -519,7 +519,7 @@ torus_config /etc/opensm/torus-2QoS.conf
 #
 # SM priority used for deciding who is the master
 # Range goes from 0 (lowest priority) to 15 (highest).
-sm_priority 8
+sm_priority <%= @sm_priority %>
 
 # SM MASTER priority that assigned to SM when it becomes MASTER
 # Should be higher than sm_priority.

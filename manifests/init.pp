@@ -1,5 +1,6 @@
 # opensm sets up opensm and runs it
 class opensm (
+  Integer $sm_priority = 0,
 ){
   ensure_packages(['opensm'], {'ensure' => present})
 
