@@ -11,4 +11,11 @@ class opensm (
     group   => 'root',
     mode    => '0644',
   }
+
+  file {'/etc/opensm/root_guid.conf':
+    content => template('opensm/root_guid.conf.erb'),
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0644',
+  }
 }
