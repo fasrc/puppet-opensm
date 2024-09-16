@@ -10,6 +10,7 @@ class opensm (
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
+    notify  => Service['opensmd'],
   }
 
   file {'/etc/opensm/root_guid.conf':
@@ -17,5 +18,16 @@ class opensm (
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
+    notify  => Service['opensmd'],
+  }
+
+  service { 'opensmd':
+    ensure => 'running',
+    enable => true,
+    require => [
+      Package['opensm'],
+      File['/etc/opensm/opensm.conf'],
+      File['/etc/opensm/root_guid.conf'],
+    ],
   }
 }
